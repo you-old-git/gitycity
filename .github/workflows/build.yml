@@ -1,4 +1,4 @@
-name: Terraform Plan
+name: Simple CI
 
 on:
   push:
@@ -6,20 +6,12 @@ on:
       - main
 
 jobs:
-  terraform-plan:
+  install-nginx:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+    - name: Echo Hello
+      run: echo "Hello"
 
-    - name: Set Up Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        terraform_version: latest
-
-    - name: Initialize Terraform
-      run: terraform init
-
-    - name: Terraform Plan
-      run: terraform plan
+    - name: Install Nginx
+      run: sudo apt-get update && sudo apt-get install -y nginx
