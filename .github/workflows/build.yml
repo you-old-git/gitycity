@@ -1,0 +1,17 @@
+name: Simple CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  install-nginx:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Echo Hello
+      run: echo "Hello"
+
+    - name: Install Nginx
+      run: sudo apt-get update && sudo apt-get install -y nginx
