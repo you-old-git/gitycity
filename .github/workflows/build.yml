@@ -16,10 +16,10 @@ jobs:
     - name: step 1
       run: ls -a  
 
-    - name: Set Up Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        terraform_version: latest
+    # - name: Set Up Terraform
+    #   uses: hashicorp/setup-terraform@v1
+    #   with:
+    #     terraform_version: latest
 
     - name: Validate Terraform Code
       run: |
