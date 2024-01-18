@@ -1,3 +1,6 @@
+-- Continuous Integration
+-- Continuous Deploymment
+
 name: Simple CI
 
 on:
@@ -6,17 +9,15 @@ on:
       - main
 
 jobs:
-  install-nginx:
+  aymans-job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Echo Hello
-      run: echo "Hello"
+    - name: step 1
+      run: ls -a
 
-    - name: Install Nginx
-      run: sudo apt-get update && sudo apt-get install -y nginx
-
-
-
-
-      
+    - name: step 2
+      run: mkdir ayman 
+   
+    - name: step 3
+      run: ls -a
