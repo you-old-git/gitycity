@@ -1,4 +1,4 @@
-name: Simple CI
+name: Terraform Validation
 
 on:
   push:
@@ -6,15 +6,43 @@ on:
       - main
 
 jobs:
-  aymans-job:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
-    - name: step 1
-      run: ls -a
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-    - name: step 2
-      run: mkdir ayman 
+    - name: step 1
+      run: ls -a  
+
+    - name: Set Up Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: latest
+
+    - name: Validate Terraform Code
+      run: |
+        terraform fmt -check -recursive
+        terraform validate
+        
+# name: Simple CI
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   aymans-job:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: step 1
+#       run: ls -a
+
+#     - name: step 2
+#       run: mkdir ayman 
    
-    - name: step 3
-      run: ls -a
+#     - name: step 3
+#       run: ls -a
