@@ -23,6 +23,7 @@ jobs:
 
     - name: Validate Terraform Code
       run: |
+        terraform init
         terraform fmt -check -recursive
         terraform validate
         
